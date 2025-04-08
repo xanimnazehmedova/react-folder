@@ -1,0 +1,16 @@
+{
+    "cards": [
+        { "id": 1,
+         "title": "Service 1", 
+         "text": "A brief description of this service"},
+        { "id": 2,
+         "title": "Service 2",
+          "text": "A brief description of this service"},
+        { "id": 3, 
+        "title": "Service 3",
+         "text": "A brief description of this service"},
+        { "id": 4, 
+        "title": "Service 4",
+         "text": "A brief description of this service"}
+      ]
+}

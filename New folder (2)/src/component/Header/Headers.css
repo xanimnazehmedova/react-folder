@@ -1,0 +1,17 @@
+#header, a, #navbar{
+    background-color: blue;
+    display: flex;
+    color: white;
+    text-decoration: none;
+    justify-content: space-between;
+    gap: 50px;
+    list-style: none;
+    align-items: center;
+    padding: 10px;
+}
+#header p{
+    font-size: 40px;
+}
+#header{
+    height: 70px;
+}
