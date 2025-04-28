@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MovieCard1 from "../../MovieCard1";
+import Genres from "../Genres";
+import Input from "../Input";
+import Selected from "../Selected";
 
 const API_KEY = "30de458775d8c75c76e63beb2a2319a4";
 const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY;
@@ -15,6 +18,7 @@ const MovieList = () => {
   const [loading, setLoading] = useState(true);
   const [genres, setGenres] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [selected, setSelected] = useState([])
   useEffect(() => {
     fetchMovies(API_URL);
     fetchGenres();
@@ -54,6 +58,9 @@ const MovieList = () => {
         
     }
   };
+  const selectMovie = (movie) => {setSelected(prev=> [...prev, movie])}
+    
+  
   return (
     <>
       <div className="container mx-auto p-4">
@@ -61,24 +68,15 @@ const MovieList = () => {
           <h1 className="text-center text-2xl font-semibold">Loading...</h1>
         )}
 
-        <div className="flex flex-wrap gap-2 justify-center mb-4">
-          {genres.map((genre) => (
-            <button
-              onClick={() => fetchMovies(API_MOVIE(genre.id))}
-              key={genre.id}
-              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition"
-            >
-              {genre.name}
-            </button>
-          ))}
-        </div>
-        <input
-          onChange={(e) => handleInput(e.target.value)}
-          type="text"
-          placeholder="Search movie name"
-          value={inputValue}
-        />
-        {movies.map((movie)=> (<MovieCard1 data={movie}/>))}
+       
+      <Input inputValue={inputValue} handleInput={handleInput}/>
+    
+      {genres.map((genre)=> (<Genres key={genre.id} genres={genre} fetchMovies={fetchMovies}/>))}
+     
+      {movies.map((movie)=> (<MovieCard1 key={movie.id} selectMovie={selectMovie} data={movie}/>))}
+    
+      <Selected selected={selected}  />
+    
       </div>
     </>
   );

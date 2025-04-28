@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const Input = () => {
-    const [text, setText]= useState(" ")
+const Input = ({inputValue, handleInput}) => {
   return (
     <div>
-        <input type="text" onChange={(e)=>setText(e.target.value)}/>
-        <p>yazi: {text}</p>
+         <input
+          onChange={(e) => handleInput(e.target.value)}
+          type="text"
+          placeholder="Search movie name"
+          value={inputValue}
+        />
     </div>
   )
 }

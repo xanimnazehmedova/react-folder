@@ -92,7 +92,7 @@ const ToDoList = () => {
          
      {filteredTodo.map((task)=>(
             <li> 
-                <span>{task.id}) {task.text} </span>
+                <span>{task.id} {task.text} </span>
                 <button onClick={()=>deleteTodo(task.id)}>delete</button>
             </li>
         ) )}

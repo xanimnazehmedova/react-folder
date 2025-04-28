@@ -1,7 +1,7 @@
 import React from 'react'
 const API_IMG = "https://image.tmdb.org/t/p/w500";
 
-const MovieCard1 = ({data}) => {
+const MovieCard1 = ({selectMovie, data}) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           
@@ -18,6 +18,7 @@ const MovieCard1 = ({data}) => {
                 <h3 className="text-lg font-bold">{data.title}</h3>
                 <p className="text-gray-700">IMDB: {data.vote_average}</p>
               </div>
+              <button onClick={()=>selectMovie(data)}> Add to Favorites</button> 
             </div>
        
         </div>
